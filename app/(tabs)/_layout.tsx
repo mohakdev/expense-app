@@ -1,9 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 
-export default function TabLayout() {
+const tabLayout = () => {
     return (
         <Tabs screenOptions={{
             tabBarActiveTintColor: '#FEC601',
@@ -37,8 +36,5 @@ export default function TabLayout() {
     );
 }
 
-// const tabStyle = StyleSheet.create({
-//     tabContainer: {
-//         backgroundColor: '1D171D'
-//     }
-// })
+export default tabLayout;
+

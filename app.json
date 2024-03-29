@@ -5,6 +5,14 @@
       "bundler": "metro"
     },
     "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/Jua-Regular.ttf"
+          ]
+        }
+      ],
       "expo-router"
     ],
     "name": "expense-app",
