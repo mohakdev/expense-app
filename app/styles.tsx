@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native"
+import { primaryColor } from "./colors";
 
 //All page specific styles are found in that page's specific file, here you can find
 //styles which can be used by all the pages.
@@ -6,7 +7,7 @@ import { StyleSheet } from "react-native"
 //mainStyles used by all the pages in the app
 const mainStyles = StyleSheet.create({
     background: {
-        backgroundColor: '#2F252F',
+        backgroundColor: primaryColor,
         paddingTop: 40,
         flex: 1,
         flexDirection: 'column',
