@@ -8,6 +8,11 @@ export interface categoryType {
     budgetAllocated? : number,
     budgetUsed? : number
 }
+export interface currencyType {
+    id : string,
+    name : string,
+    symbol : string
+}
 
 interface dataInterface {
     currentBalance : number,
