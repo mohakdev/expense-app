@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text } from 'react-native'
 import React from 'react'
-import Styles from '../styles'
+import Styles from '../styles/mainStyles'
 import { useFonts } from 'expo-font';
 
 const index = () => {

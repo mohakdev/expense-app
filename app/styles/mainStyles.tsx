@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native"
-import { primaryColor } from "./colors";
+import { primaryColor } from "../colors";
 
 //All page specific styles are found in that page's specific file, here you can find
 //styles which can be used by all the pages.

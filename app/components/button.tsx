@@ -1,6 +1,6 @@
 import { View, Text , GestureResponderEvent, Pressable, StyleSheet } from 'react-native'
 import React , {FC} from 'react'
-import mainStyles from '../styles'
+import mainStyles from '../styles/mainStyles'
 import { accentColor, primaryColor } from '../colors'
 
 interface buttonProps {
