@@ -4,7 +4,7 @@ import { categoryType } from './Logic/types';
 const CategoryContext = createContext<[categoryType[],React.Dispatch<React.SetStateAction<categoryType[]>>] | undefined>(undefined);
 
 export const CategoryProvider = ({children}: {children: ReactNode}) => {
-    const [state, setState] = useState<categoryType[]>([]);
+    const [state, setState] = useState<categoryType[]>([{name : "Movies",budgetAllocated : 200, budgetUsed : 100}]);
 
     return (
         <CategoryContext.Provider value={[state,setState]}>

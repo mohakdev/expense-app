@@ -13,8 +13,15 @@ const mainStyles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center'
     },
+    justFont : {
+        fontFamily: 'Jua-Regular'
+    },
     text: {
         fontFamily: 'Jua-Regular',
+        marginLeft: 10,
+        alignSelf: 'flex-start',
+        fontSize: 26,
+        color: 'white'
     },
     title: {
         fontSize: 40,

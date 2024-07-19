@@ -7,12 +7,6 @@ const settingStyles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center'
     },
-    categoryTxt: {
-        marginLeft: 10,
-        alignSelf: 'flex-start',
-        fontSize: 26,
-        color: 'white'
-    },
     categoryModal : {
         backgroundColor : secondaryColor,
         width : '90%',

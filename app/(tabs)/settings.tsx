@@ -31,7 +31,7 @@ const settings = () => {
         <View style={[mainStyles.background,{justifyContent : 'space-between'}]}>
             <View style={settingStyles.wrapperView}>
                 <Text style={mainStyles.title}>Settings</Text>
-                <Text style={[mainStyles.text, settingStyles.categoryTxt]} >Categories</Text>
+                <Text style={mainStyles.text} >Categories</Text>
                 <CategoryList allCategories={allCategories} deleteCategory={deleteCategory}/>
                 <Button label='ADD CATEGORY' onClick={() => setCategoryModal(true)}/>
             </View>
