@@ -16,13 +16,13 @@ export const budgetStyles = StyleSheet.create({
     },
     budgetUsedText : {
         position : 'absolute',
-        top : 4,
+        top : 3,
         left : 10,
         color : 'white'
     },
     budgetAllocatedText : {
         position : 'absolute',
-        top : 4,
+        top : 3,
         right : 10,
         color : 'white'
     }

@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native"
-import { primaryColor } from "../colors";
+import { primaryColor, secondaryColor } from "../colors";
 
 //All page specific styles are found in that page's specific file, here you can find
 //styles which can be used by all the pages.
@@ -16,12 +16,38 @@ const mainStyles = StyleSheet.create({
     justFont : {
         fontFamily: 'Jua-Regular'
     },
+    modal : {
+        backgroundColor : secondaryColor,
+        width : '90%',
+        padding : '6%',
+        borderWidth : 3,
+        borderColor : 'white',
+        borderRadius : 6,
+        position : 'absolute',
+        alignSelf : 'center',
+        alignItems : 'center',
+        justifyContent : 'center',
+        marginTop : '60%',
+    },
     text: {
         fontFamily: 'Jua-Regular',
         marginLeft: 10,
         alignSelf: 'flex-start',
         fontSize: 26,
         color: 'white'
+    },
+    textBox : {
+        fontFamily: 'Jua-Regular',
+        width: '90%',
+        backgroundColor : primaryColor,
+        borderColor : 'white',
+        borderWidth : 3,
+        borderStyle : 'solid',
+        borderRadius : 8,
+        color : 'white',
+        fontSize : 26,
+        padding : 6,
+        textAlign : 'center'
     },
     title: {
         fontSize: 40,

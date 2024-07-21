@@ -11,6 +11,7 @@ interface IProgressBar {
 
 const ProgressBar = (props : IProgressBar) => {
     const progress : number = (props.moneyUsed / props.totalBudget) * 100;
+    const clampedProgress : number = progress > 100 ? 100 : progress;
     const bgColor : string = progress >= 100 ? '#DE2929' : '#34C35A';
     
     const progressStyle = StyleSheet.create({
@@ -22,7 +23,7 @@ const ProgressBar = (props : IProgressBar) => {
       },
       progressBarChild : {
         height: '100%',
-        width: `${progress}%`,
+        width: `${clampedProgress}%`,
         backgroundColor: bgColor,
         borderRadius:30,
       },

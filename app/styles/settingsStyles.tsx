@@ -7,31 +7,6 @@ const settingStyles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center'
     },
-    categoryModal : {
-        backgroundColor : secondaryColor,
-        width : '90%',
-        padding : '6%',
-        borderWidth : 3,
-        borderColor : 'white',
-        borderRadius : 6,
-        position : 'absolute',
-        alignSelf : 'center',
-        alignItems : 'center',
-        justifyContent : 'center',
-        marginTop : '60%',
-    },
-    categoryTextBox : {
-        width: '90%',
-        backgroundColor : primaryColor,
-        borderColor : 'white',
-        borderWidth : 3,
-        borderStyle : 'solid',
-        borderRadius : 8,
-        color : 'white',
-        fontSize : 26,
-        padding : 6,
-        textAlign : 'center'
-    },
     currencyModal : {
         alignSelf : 'center',
         backgroundColor : secondaryColor,
