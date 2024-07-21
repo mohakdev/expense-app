@@ -53,7 +53,7 @@ const mainStyles = StyleSheet.create({
         fontSize: 40,
         color: 'white',
         fontFamily: 'Jua-Regular',
-    }
+    },
 })
 
 export default mainStyles;

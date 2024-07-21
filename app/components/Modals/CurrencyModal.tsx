@@ -1,8 +1,8 @@
 import { View, Text, Modal, FlatList, TouchableOpacity } from 'react-native';
 import React,{useState} from 'react';
-import settingStyles from '../styles/settingsStyles';
-import mainStyles from '../styles/mainStyles';
-import { currencyType } from '../Logic/types';
+import settingStyles from '../../styles/settingsStyles';
+import mainStyles from '../../styles/mainStyles';
+import { currencyType } from '../../Logic/types';
 
 interface ICurrencyModal {
     showCurrencyModal : boolean,

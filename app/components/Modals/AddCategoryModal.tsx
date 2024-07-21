@@ -1,8 +1,8 @@
 import { View, Text, Modal, TextInput } from 'react-native'
 import React,{useState} from 'react'
-import settingStyles from '../styles/settingsStyles';
-import mainStyles from '../styles/mainStyles';
-import Button from './button';
+import settingStyles from '../../styles/settingsStyles';
+import mainStyles from '../../styles/mainStyles';
+import Button from '../button';
 
 interface IAddCategoryModal {
     showCategoryModal : boolean,

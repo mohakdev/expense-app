@@ -4,8 +4,8 @@ import Button from '../components/button';
 import mainStyles from '../styles/mainStyles';
 import settingStyles from '../styles/settingsStyles';
 import CategoryList from '../components/CategoryList';
-import CategoryModal from '../components/AddCategoryModal';
-import CurrencyModal from '../components/CurrencyModal';
+import CategoryModal from '../components/Modals/AddCategoryModal';
+import CurrencyModal from '../components/Modals/CurrencyModal';
 import { categoryType } from '../Logic/types';
 import { useCategoryContext } from '../CategoryProvider';
 
@@ -15,7 +15,7 @@ const settings = () => {
     const [allCategories,setAllCategories] = useCategoryContext();
 
     function addCategory(categoryName : string){
-        const category : categoryType = {name: categoryName};
+        const category : categoryType = {name: categoryName, budgetAllocated : 0, budgetUsed : 0};
         const newCategoryArray : categoryType[] | undefined = allCategories;
         newCategoryArray?.push(category);
         setAllCategories(newCategoryArray);
