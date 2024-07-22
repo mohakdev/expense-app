@@ -4,8 +4,8 @@ import { useCurrencyContext } from '../CurrencyProvider'
 import { categoryType, currencyType } from '../Logic/types';
 import { useCategoryContext } from '../CategoryProvider';
 import BudgetCategory from '../components/BudgetCategory';
-import mainStyles from '../styles/mainStyles';
-import Button from '../components/button';
+import mainStyles from '../styles/MainStyles';
+import Button from '../components/Button';
 import BudgetModal from '../components/Modals/BudgetModal';
 import BudgetCategoryModal from '../components/Modals/BudgetCategoryModal';
 

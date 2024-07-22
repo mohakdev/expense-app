@@ -1,8 +1,8 @@
 import { View, Text, Modal } from 'react-native'
 import React, { useState } from 'react'
-import mainStyles from '../../styles/mainStyles'
+import mainStyles from '../../styles/MainStyles'
 import { categoryType } from '../../Logic/types'
-import Button from '../button'
+import Button from '../Button'
 import Slider from '@react-native-community/slider'
 
 interface IBudgetCategory {

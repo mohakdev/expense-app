@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import { budgetStyles } from '../styles/budgetStyles';
-import mainStyles from '../styles/mainStyles';
+import { budgetStyles } from '../styles/BudgetStyles';
+import mainStyles from '../styles/MainStyles';
+import { greenColor, redColor } from '../Colors';
 
 interface IProgressBar {
     totalBudget : number,
@@ -12,7 +13,7 @@ interface IProgressBar {
 const ProgressBar = (props : IProgressBar) => {
     const progress : number = (props.moneyUsed / props.totalBudget) * 100;
     const clampedProgress : number = progress > 100 ? 100 : progress;
-    const bgColor : string = progress >= 100 ? '#DE2929' : '#34C35A';
+    const bgColor : string = progress >= 100 ? redColor : greenColor;
     
     const progressStyle = StyleSheet.create({
       progressBarParent : {

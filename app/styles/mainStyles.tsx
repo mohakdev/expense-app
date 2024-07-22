@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native"
-import { primaryColor, secondaryColor } from "../colors";
+import { accentColor, primaryColor, secondaryColor } from "../Colors";
 
 //All page specific styles are found in that page's specific file, here you can find
 //styles which can be used by all the pages.
@@ -54,6 +54,12 @@ const mainStyles = StyleSheet.create({
         color: 'white',
         fontFamily: 'Jua-Regular',
     },
+    balanceAmtLabel : {
+        fontSize: 60,
+        textAlign : 'center',
+        color: accentColor,
+        fontFamily: 'Jua-Regular',
+    }
 })
 
 export default mainStyles;

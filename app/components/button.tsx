@@ -1,7 +1,7 @@
 import { View, Text , GestureResponderEvent, Pressable, StyleSheet } from 'react-native'
 import React , {FC} from 'react'
-import mainStyles from '../styles/mainStyles'
-import { accentColor, primaryColor } from '../colors'
+import mainStyles from '../styles/MainStyles'
+import { accentColor, primaryColor } from '../Colors'
 
 interface buttonProps {
     label : string,

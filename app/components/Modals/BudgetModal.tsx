@@ -1,8 +1,8 @@
 import { View, Text, Modal, TextInput } from 'react-native'
 import React, { useState } from 'react'
-import mainStyles from '../../styles/mainStyles';
-import settingStyles from '../../styles/settingsStyles';
-import Button from '../button';
+import mainStyles from '../../styles/MainStyles';
+import settingStyles from '../../styles/SettingsStyles';
+import Button from '../Button';
 
 interface IBudgetModal {
     showBudgetModal : boolean,

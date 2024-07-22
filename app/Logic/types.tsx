@@ -1,7 +1,9 @@
 export interface transactionType {
-    category : categoryType,
+    transactionName : string,
     amount : number,
-    closingBalance : number
+    category : categoryType,
+    closingBalance : number,
+    transactionID : number,
 }
 export interface categoryType {
     name : string,

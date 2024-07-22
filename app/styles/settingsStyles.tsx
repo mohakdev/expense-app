@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { primaryColor, secondaryColor } from "../colors";
+import { primaryColor, secondaryColor } from "../Colors";
 
 const settingStyles = StyleSheet.create({
     wrapperView : {

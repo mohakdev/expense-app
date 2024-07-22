@@ -1,7 +1,7 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
-import { accentColor, secondaryColor } from '../colors';
+import { accentColor, secondaryColor } from '../Colors';
 import { CategoryProvider } from '../CategoryProvider';
 import { CurrencyProvider } from '../CurrencyProvider';
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Category from './category'
+import Category from './Category'
 import { categoryType } from '../Logic/types'
 
 interface ICategoryList {

@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import Button from '../components/button';
-import mainStyles from '../styles/mainStyles';
-import settingStyles from '../styles/settingsStyles';
+import Button from '../components/Button';
+import mainStyles from '../styles/MainStyles';
+import settingStyles from '../styles/SettingsStyles';
 import CategoryList from '../components/CategoryList';
 import CategoryModal from '../components/Modals/AddCategoryModal';
 import CurrencyModal from '../components/Modals/CurrencyModal';

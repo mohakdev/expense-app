@@ -2,8 +2,8 @@ import { View, Text, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { categoryType } from '../Logic/types'
 import ProgressBar from './ProgressBar'
-import mainStyles from '../styles/mainStyles'
-import { budgetStyles } from '../styles/budgetStyles'
+import mainStyles from '../styles/MainStyles'
+import { budgetStyles } from '../styles/BudgetStyles'
 
 interface IBudgetCategory {
   category : categoryType,

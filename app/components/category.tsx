@@ -1,7 +1,7 @@
 import { StyleSheet,View, Text, Pressable , GestureResponderEvent } from 'react-native';
 import React , {FC} from 'react';
-import styles from '../styles/mainStyles';
-import { accentColor, primaryColor, secondaryColor } from '../colors';
+import styles from '../styles/MainStyles';
+import { accentColor, primaryColor, secondaryColor } from '../Colors';
 
 interface categoryProps {
   name: string,
