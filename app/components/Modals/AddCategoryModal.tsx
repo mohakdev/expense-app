@@ -17,7 +17,7 @@ const CategoryModal = (props : IAddCategoryModal) => {
         <Modal visible={props.showCategoryModal} onRequestClose={() => props.setCategoryModal(false)} 
             animationType='slide' transparent = {true}>
             <View style={mainStyles.modal}>
-                <TextInput style = {mainStyles.textBox} onChangeText={setCategoryText} value={categoryText}></TextInput>
+                <TextInput style = {mainStyles.textBox} onChangeText={setCategoryText} value={categoryText}/>
                 <Button label='Submit' onClick={() => props.addCategory(categoryText)}/>
             </View>
         </Modal>

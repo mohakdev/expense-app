@@ -21,6 +21,27 @@ const transactionStyles = StyleSheet.create({
     },
     transactionLabel : {fontSize : 28},
     closingLabel : {fontSize : 24},
+    bottomMargin : {marginBottom : '5%'},
+
+    dropdownBox : {
+      backgroundColor : primaryColor,
+      borderColor : 'white',
+      borderRadius : 4,
+      borderWidth : 2,
+    },
+
+    dropdownBtn : {
+      display : 'flex',
+      flexDirection : 'row',
+    },
+    dropdownItems : {
+      backgroundColor : primaryColor,
+    },
+    dropdownText : {
+      textAlign : 'center',
+      fontSize : 22,
+      color : 'white',
+    }
 });
 
 export default transactionStyles;

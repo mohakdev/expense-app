@@ -37,7 +37,10 @@ const index = () => {
             <View style={{marginBottom: 20}}>
                 <Button label='New Transaction' onClick={() => setTransactionModal(true)}/>
             </View>
-            <TransactionModal showModal={showTransactionModal} setShowModal={setTransactionModal}/>
+            <TransactionModal transactions={transactions}
+            setTransactions={setTransactions} 
+            showModal={showTransactionModal} 
+            setShowModal={setTransactionModal}/>
         </View>
     )
 }
