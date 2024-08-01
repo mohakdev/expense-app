@@ -12,13 +12,14 @@ interface ITransactionCard {
 const TransactionCard = (props : ITransactionCard) => {
   const cardColor = props.transaction.amount >= 0 ? greenColor : redColor;
   const colorStyle = StyleSheet.create({color : {backgroundColor : cardColor,},});
+  const amount = Math.abs(props.transaction.amount);
   return (
     <View style={[transactionStyles.card,colorStyle.color]}>
       <View style={transactionStyles.leftColumn}>
         <Text style={[mainStyles.text,transactionStyles.transactionLabel]}>{props.transaction.transactionName}</Text>
         <Text style={[mainStyles.text,transactionStyles.closingLabel]}>Closing: {props.currencySymbol}{props.transaction.closingBalance}</Text>
       </View>
-      <Text style={mainStyles.title}>{props.currencySymbol}{props.transaction.amount}</Text>
+      <Text style={mainStyles.title}>{props.currencySymbol}{amount}</Text>
     </View>
   )
 }

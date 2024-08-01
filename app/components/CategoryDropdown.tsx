@@ -5,8 +5,13 @@ import { useCategoryContext } from '../CategoryProvider';
 import transactionStyles from '../styles/TransactionStyles';
 import mainStyles from '../styles/MainStyles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { categoryType } from '../Logic/types';
 
-const CategoryDropdown = () => {
+interface ICategoryDropdown {
+  setSelectedCategory : React.Dispatch<React.SetStateAction<categoryType>>,
+}
+
+const CategoryDropdown = (props : ICategoryDropdown) => {
     const [categories,setAllCategories] = useCategoryContext();
     const data = categories.map((category) => {
       return category.name;
@@ -16,7 +21,7 @@ const CategoryDropdown = () => {
         <SelectDropdown
           data={data} 
           onSelect={(selectedItem,index) => {
-            console.log(selectedItem);
+            props.setSelectedCategory(selectedItem);
           }}
           renderButton={(selectedItem, isOpened) => {
             return (

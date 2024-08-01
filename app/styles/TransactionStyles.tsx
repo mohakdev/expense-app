@@ -9,6 +9,7 @@ const transactionStyles = StyleSheet.create({
       display : 'flex',
       flexDirection : 'row',
       justifyContent : 'space-between',
+      marginBottom : 12,
     },
     currentBalanceLabel : {
       color : primaryColor,
