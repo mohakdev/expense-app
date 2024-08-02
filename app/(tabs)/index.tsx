@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useFonts } from 'expo-font';
 import mainStyles from '../styles/MainStyles';
@@ -31,11 +31,13 @@ const index = () => {
             <View style={{width : '95%'}}>
                 <Text style={mainStyles.text}>Current Balance</Text>
                 <Text style={mainStyles.balanceAmtLabel}>{currencySymbol}{currentBalance}</Text>
+            </View>
+            <ScrollView style={{width : '95%'}}>
                 {transactions.reverse()?.map((transaction) => {
                     return <TransactionCard key={transaction.transactionID} transaction={transaction}
                     currencySymbol={currencySymbol}/>
                 })}
-            </View>
+            </ScrollView>
             <View style={{marginBottom: 20}}>
                 <Button label='New Transaction' onClick={() => setTransactionModal(true)}/>
             </View>

@@ -27,6 +27,6 @@ const buttonStyle = StyleSheet.create({
       backgroundColor: accentColor,
       borderRadius: 12,
       padding : 6,
-      marginTop : 10
+      marginTop : 10,
     }
 });

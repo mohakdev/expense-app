@@ -54,6 +54,12 @@ const mainStyles = StyleSheet.create({
         color: 'white',
         fontFamily: 'Jua-Regular',
     },
+    header : {
+        display : 'flex',
+        flexDirection: 'row',
+        paddingLeft : 20,
+        paddingRight : 20,
+    },
     balanceAmtLabel : {
         fontSize: 60,
         textAlign : 'center',

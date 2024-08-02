@@ -63,7 +63,7 @@ const TransactionModal = (props : ITransactionModal) => {
     categories.forEach(category => {
       console.log(category.name,selectedCategory!.name);
       if(category.name === selectedCategory!.name) {
-        category.budgetUsed! += amount;
+        category.budgetUsed! += Math.abs(amount);
       }
     });
   }

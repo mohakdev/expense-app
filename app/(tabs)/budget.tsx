@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useCurrencyContext } from '../CurrencyProvider'
 import { categoryType, currencyType } from '../Logic/types';
@@ -8,6 +8,8 @@ import mainStyles from '../styles/MainStyles';
 import Button from '../components/Button';
 import BudgetModal from '../components/Modals/BudgetModal';
 import BudgetCategoryModal from '../components/Modals/BudgetCategoryModal';
+import { budgetStyles } from '../styles/BudgetStyles';
+import HeaderView from '../components/HeaderView';
 
 const budget = () => {
     const currency : currencyType = useCurrencyContext();
@@ -33,18 +35,19 @@ const budget = () => {
 
     return (
         <View style={mainStyles.background}>
-            <Text style={mainStyles.title}>Budget</Text>
+            <HeaderView title='Budget' image={require('../assets/wallet.png')} onClick={() => setBudgetModal(true)}/> 
             <Text style={mainStyles.text}>Budget Allocated: {currency.symbol}{allocatedBudget}</Text>
             <Text style={mainStyles.text}>Remaining: {currency.symbol}{remainingBudget}</Text>
-            {categories?.map(function (category)
-            {
-                return <BudgetCategory key={category.name} 
-                category={category}
-                currency={currency.symbol}
-                setSelectedCategory={setSelectedCategory}
-                setBudgetCategoryModal={setBudgetCategoryModal}/>
-            })}
-            <Button label='Reallocate' onClick={() => setBudgetModal(true)}/>
+            <ScrollView style={budgetStyles.scrollView}>
+                {categories?.map(function (category)
+                {
+                    return <BudgetCategory key={category.name} 
+                    category={category}
+                    currency={currency.symbol}
+                    setSelectedCategory={setSelectedCategory}
+                    setBudgetCategoryModal={setBudgetCategoryModal}/>
+                })}
+            </ScrollView>
             <BudgetModal setAllocatedBudget={setAllocatedBudget} setBudgetModal={setBudgetModal} showBudgetModal={showbudgetModal}/>
             <BudgetCategoryModal category={selectedCategory!} totalBudget={remainingBudget} 
             currencySymbol={currency.symbol} showModal={showBudgetCategoryModal} 

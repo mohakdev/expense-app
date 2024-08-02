@@ -2,11 +2,6 @@ import { StyleSheet } from "react-native";
 import { primaryColor, secondaryColor } from "../Colors";
 
 const settingStyles = StyleSheet.create({
-    wrapperView : {
-        flex : 1,
-        flexDirection: 'column',
-        alignItems: 'center'
-    },
     currencyModal : {
         alignSelf : 'center',
         backgroundColor : secondaryColor,

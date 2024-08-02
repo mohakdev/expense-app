@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 
 export const budgetStyles = StyleSheet.create({
+    scrollView : {
+        width : '100%',
+        marginLeft : '10%',
+    },
     budgetCategoryCard : {
         width : '90%',
         height : 90,
