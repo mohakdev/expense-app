@@ -1,67 +1,49 @@
-import { View, Text, Modal, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Modal, TextInput} from 'react-native'
+import React, { useState } from 'react'
 import mainStyles from '../../styles/MainStyles'
 import Button from '../Button';
 import { categoryType, transactionType } from '../../Logic/types';
 import CategoryDropdown from '../CategoryDropdown';
 import transactionStyles from '../../styles/TransactionStyles';
 import CreateToast from './Toast';
-import { greenColor, primaryColor, redColor } from '../../Colors';
+import { useCategoryContext } from '../../CategoryProvider';
+import IncomeOrExpense from './IncomeOrExpense';
 
 interface ITransactionModal {
+    currentBalance : number,
     transactions : transactionType[],
     setTransactions : React.Dispatch<React.SetStateAction<transactionType[]>>,
+    updateBalance : () => void,
     showModal : boolean,
     setShowModal : React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 const TransactionModal = (props : ITransactionModal) => {
+  const [categories,setAllCategories] = useCategoryContext();
   const [transactionTitle,setTransactionTitle] = useState('Transaction Title');
   const [transactionAmt,setTransactionAmt] = useState('Amount');
   const [selectedCategory,setSelectedCategory] = useState<categoryType>();
   const [isExpense,setIsExpense] = useState(true);
 
-  const buttonStyle = StyleSheet.create({
-    incomeOrExpenseView : {
-      display : 'flex',
-      borderRadius : 12,
-      flexDirection : 'row',
-      backgroundColor : primaryColor,
-      marginBottom : 12,
-    },
-    expenseStyle : {
-      paddingLeft : 4,
-      borderTopLeftRadius : 12,
-      borderBottomLeftRadius : 12, 
-      backgroundColor : isExpense ? redColor : primaryColor
-    },
-    incomeStyle: {
-      paddingRight : 4,
-      borderTopRightRadius : 12,
-      borderBottomRightRadius : 12,
-      backgroundColor : isExpense ? primaryColor : greenColor
-    }
-  })
-
-
   const createTransaction = () => {
     if(handleInputError()){
       return;
     }
+    const amount = isExpense ? -Number(transactionAmt) : Number(transactionAmt);
+    const closingBalance = props.currentBalance + amount;
     const transaction : transactionType = {
       transactionName : transactionTitle,
-      amount : isExpense ? -Number(transactionAmt) : Number(transactionAmt),
+      amount : amount,
       category : selectedCategory!,
-      closingBalance : 100,
+      closingBalance : closingBalance,
       transactionID : props.transactions.length + 1,
     }
+    updateCategoryBudget(amount);
     const newTransactions = props.transactions;
     newTransactions.push(transaction);
-
-    console.log(transaction.amount, Math.abs(transaction.amount));
-
     props.setTransactions(newTransactions);
     props.setShowModal(false);
+    props.updateBalance();
   }
 
   const handleInputError = () : boolean => {
@@ -70,31 +52,31 @@ const TransactionModal = (props : ITransactionModal) => {
       CreateToast('Amount should be a positive number'); 
       return true;
     }
+    if(typeof selectedCategory?.name === 'undefined') {
+      CreateToast('Select a category');
+      return true;
+    }
     return false;
   }
 
-  const handleExpenseBtn = () => {
-    setIsExpense(true);
-  };
-  const handleIncomeBtn = () => {
-    setIsExpense(false);
-  };
+  const updateCategoryBudget = (amount : number) => {
+    categories.forEach(category => {
+      console.log(category.name,selectedCategory!.name);
+      if(category.name === selectedCategory!.name) {
+        category.budgetUsed! += amount;
+      }
+    });
+  }
+
 
   return (
     <Modal visible={props.showModal} onRequestClose={() => props.setShowModal(false)}
     animationType='slide' transparent={true}>
         <View style={mainStyles.modal}>
-          <View style={buttonStyle.incomeOrExpenseView}>
-            <TouchableOpacity style={buttonStyle.expenseStyle} onPress={handleExpenseBtn}>
-              <Text style={mainStyles.text}>Expense</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={buttonStyle.incomeStyle} onPress={handleIncomeBtn}>
-              <Text style={mainStyles.text}>Income</Text>
-            </TouchableOpacity>
-          </View>
+          <IncomeOrExpense isExpense={isExpense} setIsExpense={setIsExpense}/>
           <TextInput style = {[mainStyles.textBox,transactionStyles.bottomMargin]} onChangeText={setTransactionTitle} value={transactionTitle}/>
           <TextInput style = {[mainStyles.textBox,transactionStyles.bottomMargin]} onChangeText={setTransactionAmt} value={transactionAmt}/>
-          <CategoryDropdown setSelectedCategory={setSelectedCategory}/>
+          <CategoryDropdown categories={categories} setSelectedCategory={setSelectedCategory}/>
           <Button onClick={createTransaction} label='Submit'/>
         </View>
     </Modal>

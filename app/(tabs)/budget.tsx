@@ -46,7 +46,7 @@ const budget = () => {
             })}
             <Button label='Reallocate' onClick={() => setBudgetModal(true)}/>
             <BudgetModal setAllocatedBudget={setAllocatedBudget} setBudgetModal={setBudgetModal} showBudgetModal={showbudgetModal}/>
-            <BudgetCategoryModal category={selectedCategory!} totalBudget={allocatedBudget} 
+            <BudgetCategoryModal category={selectedCategory!} totalBudget={remainingBudget} 
             currencySymbol={currency.symbol} showModal={showBudgetCategoryModal} 
             setShowModal={setBudgetCategoryModal}/>
         </View>
