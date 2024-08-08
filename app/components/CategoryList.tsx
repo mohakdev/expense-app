@@ -1,6 +1,6 @@
 import React from 'react'
 import Category from './Category'
-import { categoryType } from '../Logic/types'
+import { categoryType } from '../types'
 
 interface ICategoryList {
     allCategories : categoryType[] | undefined,

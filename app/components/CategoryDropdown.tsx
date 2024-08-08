@@ -5,7 +5,7 @@ import { useCategoryContext } from '../CategoryProvider';
 import transactionStyles from '../styles/TransactionStyles';
 import mainStyles from '../styles/MainStyles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { categoryType } from '../Logic/types';
+import { categoryType } from '../types';
 
 interface ICategoryDropdown {
   categories : categoryType[],

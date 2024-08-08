@@ -2,7 +2,9 @@ import { View, Text, Modal, FlatList, TouchableOpacity } from 'react-native';
 import React,{useState} from 'react';
 import settingStyles from '../../styles/SettingsStyles';
 import mainStyles from '../../styles/MainStyles';
-import { currencyType } from '../../Logic/types';
+import { currencyType } from '../../types';
+import { SaveCurrency } from '../../StoreData';
+import { useCurrencyContext } from '../../CurrencyProvider';
 
 interface ICurrencyModal {
     showCurrencyModal : boolean,
@@ -18,12 +20,12 @@ const currencies : currencyType[] = [
     {id:7,name:"GBP",symbol:"£"},
 ]
 const CurrencyModal = (props : ICurrencyModal) => {
-    const [selectedCurrency, setSelectedCurrency] = useState<currencyType>();
+    const [currency,setCurrency] = useCurrencyContext();
     function ChangeCurrency(item : currencyType)
     {
+        setCurrency(item);
+        SaveCurrency(item);
         props.setCurrencyModal(false);
-        setSelectedCurrency(item);
-        console.log(item);
     }
     return (
         <Modal visible={props.showCurrencyModal} onRequestClose={() => props.setCurrencyModal(false)} 

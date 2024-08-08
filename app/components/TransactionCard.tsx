@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React, { useEffect } from 'react'
-import { transactionType } from '../Logic/types';
+import { transactionType } from '../types';
 import { greenColor, redColor } from '../Colors';
 import mainStyles from '../styles/MainStyles';
 import transactionStyles from '../styles/TransactionStyles';
@@ -19,7 +19,7 @@ const TransactionCard = (props : ITransactionCard) => {
         <Text style={[mainStyles.text,transactionStyles.transactionLabel]}>{props.transaction.transactionName}</Text>
         <Text style={[mainStyles.text,transactionStyles.closingLabel]}>Closing: {props.currencySymbol}{props.transaction.closingBalance}</Text>
       </View>
-      <Text style={mainStyles.title}>{props.currencySymbol}{amount}</Text>
+      <Text style={[mainStyles.title,{marginRight : 3}]}>{props.currencySymbol}{amount}</Text>
     </View>
   )
 }

@@ -1,13 +1,14 @@
 import { View, Modal, TextInput} from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import mainStyles from '../../styles/MainStyles'
 import Button from '../Button';
-import { categoryType, transactionType } from '../../Logic/types';
+import { categoryType, transactionType } from '../../types';
 import CategoryDropdown from '../CategoryDropdown';
 import transactionStyles from '../../styles/TransactionStyles';
 import CreateToast from './Toast';
 import { useCategoryContext } from '../../CategoryProvider';
 import IncomeOrExpense from './IncomeOrExpense';
+import { SaveCategories, SaveTransactions } from '../../StoreData';
 
 interface ITransactionModal {
     currentBalance : number,
@@ -19,7 +20,7 @@ interface ITransactionModal {
 }
 
 const TransactionModal = (props : ITransactionModal) => {
-  const [categories,setAllCategories] = useCategoryContext();
+  const [categories,setCategories] = useCategoryContext();
   const [transactionTitle,setTransactionTitle] = useState('Transaction Title');
   const [transactionAmt,setTransactionAmt] = useState('Amount');
   const [selectedCategory,setSelectedCategory] = useState<categoryType>();
@@ -29,6 +30,7 @@ const TransactionModal = (props : ITransactionModal) => {
     if(handleInputError()){
       return;
     }
+
     const amount = isExpense ? -Number(transactionAmt) : Number(transactionAmt);
     const closingBalance = props.currentBalance + amount;
     const transaction : transactionType = {
@@ -38,12 +40,24 @@ const TransactionModal = (props : ITransactionModal) => {
       closingBalance : closingBalance,
       transactionID : props.transactions.length + 1,
     }
-    updateCategoryBudget(amount);
+    updateCategoryBudget();
+
     const newTransactions = props.transactions;
-    newTransactions.push(transaction);
+    newTransactions.unshift(transaction); //Adds a new transaction in the beginning of the array
     props.setTransactions(newTransactions);
-    props.setShowModal(false);
+    SaveTransactions(newTransactions);
     props.updateBalance();
+    props.setShowModal(false);
+  }
+
+  const updateCategoryBudget = () => {
+    if(isExpense)
+    {
+      const categoryArray : categoryType[] = categories;
+      categoryArray[categories.indexOf(selectedCategory!)].budgetUsed! += Math.abs(Number(transactionAmt));
+      setCategories(categoryArray);
+      SaveCategories(categories);
+    }
   }
 
   const handleInputError = () : boolean => {
@@ -58,16 +72,6 @@ const TransactionModal = (props : ITransactionModal) => {
     }
     return false;
   }
-
-  const updateCategoryBudget = (amount : number) => {
-    categories.forEach(category => {
-      console.log(category.name,selectedCategory!.name);
-      if(category.name === selectedCategory!.name) {
-        category.budgetUsed! += Math.abs(amount);
-      }
-    });
-  }
-
 
   return (
     <Modal visible={props.showModal} onRequestClose={() => props.setShowModal(false)}

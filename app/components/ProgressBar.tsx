@@ -1,16 +1,17 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { budgetStyles } from '../styles/BudgetStyles';
 import mainStyles from '../styles/MainStyles';
 import { greenColor, redColor } from '../Colors';
+import { useCurrencyContext } from '../CurrencyProvider';
 
 interface IProgressBar {
     totalBudget : number,
-    moneyUsed : number,
-    currency : string,
+    moneyUsed : number
 }
 
 const ProgressBar = (props : IProgressBar) => {
+    const [currency,setCurrency] = useCurrencyContext();
     const progress : number = (props.moneyUsed / props.totalBudget) * 100;
     const clampedProgress : number = progress > 100 ? 100 : progress;
     const bgColor : string = progress >= 100 ? redColor : greenColor;
@@ -28,13 +29,13 @@ const ProgressBar = (props : IProgressBar) => {
         backgroundColor: bgColor,
         borderRadius:30,
       },
-  });
+    });
        
     return (
     <View style={progressStyle.progressBarParent}>
       <View style={progressStyle.progressBarChild}/>
-      <Text style={[mainStyles.justFont,budgetStyles.budgetUsedText]}>{props.currency + props.moneyUsed.toString()}</Text>
-      <Text style={[mainStyles.justFont,budgetStyles.budgetAllocatedText]}>{props.currency +props.totalBudget.toString()}</Text>
+      <Text style={[mainStyles.justFont,budgetStyles.budgetUsedText]}>{currency.symbol}{props.moneyUsed.toString()}</Text>
+      <Text style={[mainStyles.justFont,budgetStyles.budgetAllocatedText]}>{currency.symbol}{props.totalBudget.toString()}</Text>
     </View>
     )
 }

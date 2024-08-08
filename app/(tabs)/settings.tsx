@@ -6,9 +6,10 @@ import settingStyles from '../styles/SettingsStyles';
 import CategoryList from '../components/CategoryList';
 import CategoryModal from '../components/Modals/AddCategoryModal';
 import CurrencyModal from '../components/Modals/CurrencyModal';
-import { categoryType } from '../Logic/types';
+import { categoryType } from '../types';
 import { useCategoryContext } from '../CategoryProvider';
 import HeaderView from '../components/HeaderView';
+import { SaveCategories } from '../StoreData';
 
 const settings = () => {
     const [showCategoryModal, setCategoryModal] = useState(false);
@@ -20,6 +21,7 @@ const settings = () => {
         const newCategoryArray : categoryType[] | undefined = allCategories;
         newCategoryArray?.push(category);
         setAllCategories(newCategoryArray);
+        SaveCategories(newCategoryArray);
         setCategoryModal(false);
     }
     function deleteCategory(categoryName : string)

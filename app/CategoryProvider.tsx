@@ -1,11 +1,18 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { categoryType } from './Logic/types';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { categoryType } from './types';
+import { LoadCategories } from './StoreData';
 
 const CategoryContext = createContext<[categoryType[],React.Dispatch<React.SetStateAction<categoryType[]>>] | undefined>(undefined);
 
 export const CategoryProvider = ({children}: {children: ReactNode}) => {
-    const [state, setState] = useState<categoryType[]>([{name : "Movies",budgetAllocated : 200, budgetUsed : 100}]);
-
+    const [state, setState] = useState<categoryType[]>([]);
+    useEffect(() => {
+        const fetchCategories = async () => {
+            const loadedArray = await LoadCategories();
+            setState(loadedArray);
+        };
+        fetchCategories();
+    }, []);
     return (
         <CategoryContext.Provider value={[state,setState]}>
             {children}
