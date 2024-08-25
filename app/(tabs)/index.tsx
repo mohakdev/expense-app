@@ -1,6 +1,5 @@
 import { StyleSheet, View, Text, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { useFonts } from 'expo-font';
 import mainStyles from '../styles/MainStyles';
 import { useCurrencyContext } from '../CurrencyProvider';
 import { currencyType, transactionType } from '../types';
@@ -10,10 +9,6 @@ import TransactionModal from '../components/Modals/TransactionModal';
 import { LoadTransactions } from '../StoreData';
 
 const index = () => {
-    useFonts({
-        'Jua-Regular': require('../assets/Jua-Regular.ttf'),
-    });
-
     const [currentBalance,setCurrentBalance] = useState(0);
     const [transactions,setTransactions] = useState<transactionType[]>([]);
     const [showTransactionModal,setTransactionModal] = useState(false);

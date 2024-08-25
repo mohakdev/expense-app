@@ -9,7 +9,7 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/Jua-Regular.ttf"
+            "./assets/fonts/Jua-Regular.ttf"
           ]
         }
       ],
