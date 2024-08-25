@@ -16,6 +16,17 @@
       "expo-router"
     ],
     "name": "expense-app",
-    "slug": "expense-app"
+    "slug": "expense-app",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e90fad43-aa80-4aad-976c-5d179dafaea6"
+      }
+    },
+    "android": {
+      "package": "com.mohakdev.expenseapp"
+    }
   }
 }
