@@ -1,10 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { categoryType, currencyType, transactionType } from "./types";
 
-const transactionKey = "transaction*og";
-const categoryKey = "categories*og";
-const currencyKey = "currency*og";
-const budgetKey = "budget*og";
+const transactionKey = "transaction*";
+const categoryKey = "categories*";
+const currencyKey = "currency*";
+const budgetKey = "budget*";
 
 
 export const LoadTransactions = async() : Promise<transactionType[]> => {
