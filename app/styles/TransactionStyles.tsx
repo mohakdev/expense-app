@@ -1,15 +1,22 @@
 import { StyleSheet } from "react-native";
 import { primaryColor } from "../Colors";
 const transactionStyles = StyleSheet.create({
+    transactionWrapper : {
+      display : 'flex',
+      flexDirection : 'row',
+    },
     card : {
-      minHeight : 80,
+      flexGrow : 1,
+      maxWidth : 'auto',
       borderRadius : 12,
       borderWidth : 3,
+      marginBottom : 12,
       borderColor : 'white',
+    },
+    cardLayout : {
       display : 'flex',
       flexDirection : 'row',
       justifyContent : 'space-between',
-      marginBottom : 12,
     },
     currentBalanceLabel : {
       color : primaryColor,
@@ -23,6 +30,13 @@ const transactionStyles = StyleSheet.create({
     transactionLabel : {fontSize : 28},
     closingLabel : {fontSize : 24},
     bottomMargin : {marginBottom : '5%'},
+    
+    deleteIcon : {
+      width : 40,
+      height : 40,
+      alignSelf : 'center',
+      justifyContent : 'center',
+    },
 
     dropdownBox : {
       backgroundColor : primaryColor,

@@ -1,6 +1,7 @@
 {
   "expo": {
     "scheme": "acme",
+    "icon": "./app/assets/Icon.png",
     "web": {
       "bundler": "metro"
     },
@@ -9,13 +10,13 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/fonts/Jua-Regular.ttf"
+            "./app/assets/fonts/Jua-Regular.ttf"
           ]
         }
       ],
       "expo-router"
     ],
-    "name": "expense-app",
+    "name": "Expense Tracker",
     "slug": "expense-app",
     "extra": {
       "router": {

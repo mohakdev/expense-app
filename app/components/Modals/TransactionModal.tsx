@@ -27,9 +27,7 @@ const TransactionModal = (props : ITransactionModal) => {
   const [isExpense,setIsExpense] = useState(true);
 
   const createTransaction = () => {
-    if(handleInputError()){
-      return;
-    }
+    if(handleInputError()){return;}
 
     const amount = isExpense ? -Number(transactionAmt) : Number(transactionAmt);
     const closingBalance = props.currentBalance + amount;
@@ -56,7 +54,7 @@ const TransactionModal = (props : ITransactionModal) => {
       const categoryArray : categoryType[] = categories;
       categoryArray[categories.indexOf(selectedCategory!)].budgetUsed! += Math.abs(Number(transactionAmt));
       setCategories(categoryArray);
-      SaveCategories(categories);
+      SaveCategories(categoryArray);
     }
   }
 
@@ -64,10 +62,6 @@ const TransactionModal = (props : ITransactionModal) => {
     if(Number.isNaN(+transactionAmt) || Number(transactionAmt) < 0)
     {
       CreateToast('Amount should be a positive number'); 
-      return true;
-    }
-    if(typeof selectedCategory?.name === 'undefined') {
-      CreateToast('Select a category');
       return true;
     }
     return false;

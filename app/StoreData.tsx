@@ -1,10 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { categoryType, currencyType, transactionType } from "./types";
 
-const transactionKey = "transaction*";
-const categoryKey = "categories*";
-const currencyKey = "currency*";
-const budgetKey = "budget*";
+const transactionKey = "transaction*og";
+const categoryKey = "categories*og";
+const currencyKey = "currency*og";
+const budgetKey = "budget*og";
 
 
 export const LoadTransactions = async() : Promise<transactionType[]> => {
@@ -21,6 +21,10 @@ export const LoadTransactions = async() : Promise<transactionType[]> => {
         return [];
     }
 };
+const defaultCategories : categoryType[] = [
+    {name : 'Rent', budgetAllocated : 0, budgetUsed : 0},
+    {name : 'Groceries', budgetAllocated : 0,budgetUsed : 0},
+    {name : 'Shopping', budgetAllocated : 0,budgetUsed : 0},];
 
 export const LoadCategories = async () : Promise<categoryType[]> => {
     try {
@@ -28,7 +32,7 @@ export const LoadCategories = async () : Promise<categoryType[]> => {
         if (jsonData) {
             return JSON.parse(jsonData) as categoryType[];
         }
-        return [];
+        return defaultCategories;
     } 
     catch (error) 
     {
